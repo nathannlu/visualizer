@@ -1,6 +1,10 @@
 # Stable Diffusion Visualizer
 Visualize every attention layer in the UNet for each word in the prompt.
 
+
+https://github.com/user-attachments/assets/45af9de1-035d-4af5-8946-8740cd0daed3
+
+
 ## 1. Setting up the repository
 Make sure you have the following prerequisites installed on your system:
 - python version 3.10
