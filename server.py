@@ -4,7 +4,6 @@ from PIL import Image
 import base64
 from pathlib import Path
 from gen_ai.loaders import load_taesd
-from gen_ai.manual_video_sample import sample
 import numpy as np
 import math
 import os
