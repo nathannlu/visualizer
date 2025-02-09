@@ -22,17 +22,21 @@ import {
 } from "@/components/ui/dialog"
 import { toast } from "sonner"
 import { useEditor, getAllStepsWithFrames } from "./hooks/useEditor";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
 
 
 export function Editor() {
   const [prompt, setPrompt] = useState("");
+  const [model, setModel] = useState("FLUX");
+  const url = model === "FLUX" ? "/ws-flux" : "/ws";
   const [needPrepareLatentUpdate, setNeedPrepareLatentUpdate] = useState(false);
   const { 
     isConnected,
     output,
     prepareLatents,
     onSample,
-  } = useEditor();
+  } = useEditor(url);
   const [isLoading, setIsLoading] = useState(false);
 
 
@@ -68,6 +72,16 @@ export function Editor() {
 
   return (
     <div className="container mx-auto">
+      <div>
+        Selected Model: {model}
+        <Button onClick={() => setModel("FLUX")}>
+          Flux
+        </Button>
+        <Button onClick={() => setModel("SD")}>
+          SD 2.1
+        </Button>
+      </div>
+
       <div className="flex flex-col gap-2 my-2 max-w-[540px] mx-auto">
         <p className="text-sm">
           Wait until the status shows "Connected", before typing in your prompt and clicking on sample.
@@ -101,9 +115,11 @@ export function Editor() {
 
       {output?.attn_maps && (
         <>
-          <p className="mt-8">
-            Here, we see each layer of the model's attention map. The latent runs from left to right, and the attention map for each word in the prompt is shown in the first column. The table numbers (4096, 1024, 256,... etc) represent the image area the attention is focusing upon. This is each CrossAttention from the Spatial Transformer of the UNet model. <a href="https://scholar.harvard.edu/binxuw/classes/machine-learning-scratch/materials/stable-diffusion-scratch" target="_blank">See more about Stable Diffusion UNets here.</a>
-          </p>
+          {model === "SD" ? (
+            <p className="mt-8">
+              Here, we see each layer of the model's attention map. The latent runs from left to right, and the attention map for each word in the prompt is shown in the first column. The table numbers (4096, 1024, 256,... etc) represent the image area the attention is focusing upon. This is each CrossAttention from the Spatial Transformer of the UNet model. <a href="https://scholar.harvard.edu/binxuw/classes/machine-learning-scratch/materials/stable-diffusion-scratch" target="_blank">See more about Stable Diffusion UNets here.</a>
+            </p>
+          ) : null}
           <div className="grid grid-cols-[repeat(17,minmax(50px,1fr))] gap-4 text-center">
             {/* Row with headers (keys) */}
             <div className="contents">

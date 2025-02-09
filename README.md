@@ -5,6 +5,11 @@ Visualize every attention layer in the UNet for each word in the prompt.
 https://github.com/user-attachments/assets/45af9de1-035d-4af5-8946-8740cd0daed3
 
 
+Supported models
+- Flux Dev
+- Stable Diffusion 2.1
+
+
 ## 1. Setting up the repository
 Make sure you have the following prerequisites installed on your system:
 - python version 3.10
@@ -13,7 +18,20 @@ Make sure you have the following prerequisites installed on your system:
 The following steps will include commands you can run in your terminal. The commands are written for UNIX based systems like MacOS and Linux.
 
 ### 1.1 Download the model
-First, download the Stable Diffusion 2.1 model into the /models folder. You can download the model from Huggingface [here](https://huggingface.co/stabilityai/stable-diffusion-2-1-base/blob/main/v2-1_512-ema-pruned.safetensors).
+** For Flux Dev **
+Download the Flux Dev repository into the /models folder. You can download the repository from Huggingface [here](https://huggingface.co/black-forest-labs/FLUX.1-dev). You should have the following files in the /models folder:
+- /models/black-forest-labs/FLUX.1-dev/flux1-dev.safetensors
+- /models/black-forest-labs/FLUX.1-dev/ae.safetensors
+
+You also need to download [OpenAI's CLIP](https://huggingface.co/openai/clip-vit-large-patch14) and [Google's T5 encoders](https://huggingface.co/google/t5-v1_1-xxl) to the models repository.
+You should have the following files in the /models folder:
+- /models/openai/clip-vit-large-patch14/model.safetensors 
+- /models/google/t5-v1_1-xxl/pytorch_model.bin
+
+
+
+** For Stable Diffusion 2.1 **
+Download the Stable Diffusion 2.1 model into the /models folder. You can download the model from Huggingface [here](https://huggingface.co/stabilityai/stable-diffusion-2-1-base/blob/main/v2-1_512-ema-pruned.safetensors).
 After you have downloaded the model, the path to the model should be /models/v2-1_512-ema-pruned.safetensors
 
 ### 1.2 Install Python server dependencies

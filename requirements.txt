@@ -60,3 +60,12 @@ yarl
 git+https://github.com/openai/CLIP.git
 python-multipart
 open-clip-torch==2.24.0
+cuda-python
+tensorrt
+polygraphy
+onnx
+onnx_graphsurgeon
+
+uvicorn
+xformers
+uvicorn[standard]

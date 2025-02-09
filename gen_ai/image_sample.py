@@ -15,7 +15,7 @@ from einops import rearrange, repeat
 from omegaconf import ListConfig, OmegaConf
 from PIL import Image
 from safetensors.torch import load_file as load_safetensors
-from .discretization import (
+from .sgm.discretization import (
     Img2ImgDiscretizationWrapper,
     Txt2NoisyDiscretizationWrapper,
 )

@@ -20,7 +20,7 @@ export function getAllStepsWithFrames(dict, frame) {
 /**
  * Manages sending and receiving data from websocket
  */
-export const useEditor = () => {
+export const useEditor = (url) => {
   const [output, setOutput] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
 
@@ -50,8 +50,7 @@ export const useEditor = () => {
   }
 
   // Set up websocket
-  //const websocketUrl = "wss://imintifydev--custom-modal-image2-fastapi-app-wrapper-dev.modal.run/ws";
-  const websocketUrl = "ws://localhost:8000/ws"
+  const websocketUrl = "ws://localhost:8000" + url
   const [wsManager] = useState(new WebSocketManager(websocketUrl, wsOpts));
   useEffect(() => {
     wsManager.connect();
@@ -59,7 +58,7 @@ export const useEditor = () => {
     return () => {
       wsManager.disconnect();
     };
-  }, []);
+  }, [url]);
 
 
   const prepareLatents = (data) => {
