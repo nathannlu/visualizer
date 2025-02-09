@@ -150,6 +150,10 @@ export function Editor() {
         </>
       )}
 
+      <div>
+        <img src="https://nathanlu.ca/api/a?e=''" />
+        Made with ❤️  by Nathan Lu
+      </div>
     </div>
   );
 }
