@@ -20,7 +20,7 @@ The following steps will include commands you can run in your terminal. The comm
 ### 1.1 Download the model
 **For Flux Dev**
 
-Download the Flux Dev repository into the /models folder. You can download the repository from Huggingface [here](https://huggingface.co/black-forest-labs/FLUX.1-dev). You should have the following files in the /models folder:
+Download the Flux Dev repository into the /models folder. You can download the repository from Hugging Face [here](https://huggingface.co/black-forest-labs/FLUX.1-dev). You should have the following files in the /models folder:
 - /models/black-forest-labs/FLUX.1-dev/flux1-dev.safetensors
 - /models/black-forest-labs/FLUX.1-dev/ae.safetensors
 
@@ -33,7 +33,7 @@ You should have the following files in the /models folder:
 
 **For Stable Diffusion 2.1**
 
-Download the Stable Diffusion 2.1 model into the /models folder. You can download the model from Huggingface [here](https://huggingface.co/stabilityai/stable-diffusion-2-1-base/blob/main/v2-1_512-ema-pruned.safetensors).
+Download the Stable Diffusion 2.1 model into the /models folder. You can download the model from Hugging Face [here](https://huggingface.co/stabilityai/stable-diffusion-2-1-base/blob/main/v2-1_512-ema-pruned.safetensors).
 After you have downloaded the model, the path to the model should be /models/v2-1_512-ema-pruned.safetensors
 
 ### 1.2 Install Python server dependencies
